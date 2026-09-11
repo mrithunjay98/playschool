@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Academy | Modern & Advanced Preschool</title>
+    <!-- Professional Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ==================== GLOBAL VARIABLES & RESET ==================== */
+        :root {
+            --primary: #4F46E5;        /* Deep Indigo */
+            --primary-hover: #4338CA;
+            --secondary: #10B981;      /* Sage / Mint Green */
+            --accent-warm: #FF7E67;    /* Warm Soft Coral */
+            --accent-yellow: #F59E0B;  /* Muted Gold */
+            --dark-heading: #0F172A;   /* Slate Dark */
+            --body-text: #475569;      /* Slate Light */
+            --bg-light: #F8FAFC;       /* Porcelain Neutral */
+            --card-bg: #FFFFFF;
+            --border-color: #E2E8F0;
+            
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Nunito', sans-serif;
+            
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --shadow-soft: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+            --shadow-hover: 0 20px 40px -10px rgba(79, 70, 229, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--body-text);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--dark-heading);
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ==================== NAVIGATION ==================== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 8%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark-heading);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a { transition: color 0.2s ease; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn-nav {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.65rem 1.4rem;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease !important;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+        }
+
+        .btn-nav:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-heading);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5rem 8% 4rem;
+            gap: 4rem;
+            background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.05), transparent 50%);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 580px;
+        }
+
+        .pill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(79, 70, 229, 0.08);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.25rem;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            font-weight: 800;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--body-text);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.85rem 1.8rem;
+            border-radius: var(--radius-md);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25 ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark-heading);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: #F1F5F9;
+            transform: translateY(-2px);
+        }
+
+        .hero-image-wrapper {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 480px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-hover);
+            object-fit: cover;
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: white;
+            padding: 0.9rem 1.25rem;
+            border-radius: var(--radius-md);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .badge-1 { top: 12%; left: -20px; }
+        .badge-2 { bottom: 10%; right: -10px; }
+
+        .floating-badge i {
+            font-size: 1.2rem;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        /* ==================== STATS BAR ==================== */
+        .stats-section {
+            background: white;
+            padding: 2.5rem 8%;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--body-text);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==================== PROGRAMS SECTION ==================== */
+        .section-padding { padding: 6rem 8%; }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3.5rem auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--body-text);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(79, 70, 229, 0.3);
+        }
+
+        .card-tag {
+            align-self: flex-start;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--secondary);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 1.25rem;
+        }
+
+        .program-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .program-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .feature-list {
+            margin-bottom: 1.8rem;
+        }
+
+        .feature-list li {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-list i {
+            color: var(--secondary);
+        }
+
+        .card-link {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-link:hover { text-decoration: underline; }
+
+        /* ==================== FEATURES SECTION ==================== */
+        .bg-white { background: white; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-box {
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-4px);
+        }
+
+        .icon-wrapper {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-box h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-box p {
+            font-size: 0.9rem;
+        }
+
+        /* ==================== CONTACT & FORM ==================== */
+        .contact-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            overflow: hidden;
+        }
+
+        .contact-info-panel {
+            flex: 1;
+            background: linear-gradient(135deg, var(--dark-heading), #1E293B);
+            color: white;
+            padding: 3.5rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-info-panel h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-panel p {
+            color: #94A3B8;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-details li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .info-details i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .form-panel {
+            flex: 1.2;
+            padding: 3.5rem 3rem;
+        }
+
+        .form-panel h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.4rem;
+            color: var(--dark-heading);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: white;
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 8%;
+            font-size: 0.9rem;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            width: 36px;
+            height: 36px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0.5rem;
+            color: var(--body-text);
+            transition: all 0.2s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 3rem;
+            }
+            .hero-content { max-width: 100%; }
+            .hero-btns { justify-content: center; }
+            .floating-badge { display: none; }
+            .contact-card { flex-direction: column; }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-soft);
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active { display: flex; }
+            .hero-content h1 { font-size: 2.4rem; }
+            .form-panel, .contact-info-panel { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-shapes"></i></div>
+            Aura <span>Academy</span>
+        </div>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#features">Why Aura</a></li>
+                <li><a href="#contact" class="btn-nav">Admissions Open</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="pill-badge">
+                <i class="fa-solid fa-sparkles"></i> Next-Gen Early Education
+            </div>
+            <h1>Empowering Young Minds for a Dynamic Future</h1>
+            <p>Combining STEAM-guided early learning, emotional intelligence, and state-of-the-art security in a world-class environment.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary">Schedule Campus Tour <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#programs" class="btn btn-secondary">Explore Programs</a>
+            </div>
+        </div>
+        <div class="hero-image-wrapper">
+            <div class="floating-badge badge-1">
+                <i class="fa-solid fa-brain" style="background:#EEF2FF; color:var(--primary);"></i>
+                <div>
+                    <div>STEAM Learning</div>
+                    <div style="font-weight:400; font-size:0.75rem; color:var(--body-text)">Logic & Creativity</div>
+                </div>
+            </div>
+            <div class="floating-badge badge-2">
+                <i class="fa-solid fa-shield-check" style="background:#ECFDF5; color:var(--secondary);"></i>
+                <div>
+                    <div>Smart Campus</div>
+                    <div style="font-weight:400; font-size:0.75rem; color:var(--body-text)">Encrypted Live Streaming</div>
+                </div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80" alt="Children learning in a modern classroom" class="hero-img">
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>1:6</h3>
+                <p>Teacher-Student Ratio</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Certified Educators</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Parent App Access</p>
+            </div>
+            <div class="stat-item">
+                <h3>4.9★</h3>
+                <p>Parent Satisfaction Score</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="section-padding">
+        <div class="section-header">
+            <h2>Modern Learning Pathways</h2>
+            <p>Tailored curriculum structured specifically for each developmental phase of early childhood.</p>
+        </div>
+        <div class="programs-grid">
+            <!-- Program 1 -->
+            <div class="program-card">
+                <span class="card-tag">Ages 1.5 – 2.5 Yrs</span>
+                <h3>Toddler Nest</h3>
+                <p>Focuses on sensory exploration, motor skill alignment, emotional security, and speech foundations.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Sensory & Tactile Workspaces</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Rhythmic Movement & Music</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Potty Training Assistance</li>
+                </ul>
+                <a href="#contact" class="card-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+
+            <!-- Program 2 -->
+            <div class="program-card">
+                <span class="card-tag" style="background: rgba(79, 70, 229, 0.1); color: var(--primary);">Ages 2.5 – 3.5 Yrs</span>
+                <h3>Junior Explorers</h3>
+                <p>Structured play designed to introduce problem-solving, foundational literacy, and interactive social games.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Early STEAM Discovery Modules</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Phonics & Early Math Concepts</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Collaborative Group Projects</li>
+                </ul>
+                <a href="#contact" class="card-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+
+            <!-- Program 3 -->
+            <div class="program-card">
+                <span class="card-tag" style="background: rgba(255, 126, 103, 0.1); color: var(--accent-warm);">Ages 3.5 – 5.5 Yrs</span>
+                <h3>Kindergarten (K1-K2)</h3>
+                <p>Comprehensive academic readiness building executive function, logical thinking, and creative expression.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Interactive Smart Classroom Tools</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Introductory Language Lab</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Elementary School Prep</li>
+                </ul>
+                <a href="#contact" class="card-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-padding bg-white">
+        <div class="section-header">
+            <h2>The Aura Smart Advantage</h2>
+            <p>Infusing warmth and early childhood care with modern, security-first technologies.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="icon-wrapper"><i class="fa-solid fa-mobile-screen"></i></div>
+                <h3>Parent Portal App</h3>
+                <p>Live daily updates on meal logs, nap schedules, photos, and personalized developmental milestones.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon-wrapper"><i class="fa-solid fa-video"></i></div>
+                <h3>Encrypted HD CCTV</h3>
+                <p>Secure stream access via mobile to view your child's progress throughout the day.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon-wrapper"><i class="fa-solid fa-bowl-food"></i></div>
+                <h3>Curated Nutrition</h3>
+                <p>Organic, chef-prepared meals designed by pediatric nutrition specialists daily.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon-wrapper"><i class="fa-solid fa-user-nurse"></i></div>
+                <h3>Full-Time Health Desk</h3>
+                <p>On-site certified pediatric nurse and instant emergency health response systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Admissions Section -->
+    <section id="contact" class="section-padding">
+        <div class="contact-card">
+            <div class="contact-info-panel">
+                <div>
+                    <h2>Begin Your Child's Journey</h2>
+                    <p>Admissions are now open for the upcoming academic cycle. Book a tour to tour our smart facilities.</p>
+                    
+                    <ul class="info-details">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <strong>Campus Address</strong>
+                                <p style="margin:0; color:#CBD5E1;">123 Academy Drive, Modern City</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <strong>Email Direct</strong>
+                                <p style="margin:0; color:#CBD5E1;">admissions@auraacademy.edu</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <strong>Phone Line</strong>
+                                <p style="margin:0; color:#CBD5E1;">+1 (800) 456-AURA</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div style="font-size: 0.85rem; color: #94A3B8;">
+                    * Limited seats available per cohort to maintain optimal teacher ratios.
+                </div>
+            </div>
+
+            <div class="form-panel">
+                <h3>Schedule a Campus Visit</h3>
+                <form id="tourForm">
+                    <div class="form-group">
+                        <label for="parentName">Parent's Full Name</label>
+                        <input type="text" id="parentName" class="form-control" required placeholder="e.g. Sarah Jenkins">
+                    </div>
+                    <div class="form-group">
+                        <label for="childAge">Child's Age (Years)</label>
+                        <input type="text" id="childAge" class="form-control" required placeholder="e.g. 2.5 Years">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required placeholder="sarah@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="programSelect">Program Interest</label>
+                        <select id="programSelect" class="form-control" required>
+                            <option value="">Select a Program</option>
+                            <option value="toddler">Toddler Nest (1.5 - 2.5 Yrs)</option>
+                            <option value="junior">Junior Explorers (2.5 - 3.5 Yrs)</option>
+                            <option value="kindergarten">Kindergarten (3.5 - 5.5 Yrs)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top:1rem;">
+                        Submit Registration Request
+                    </button>
+                    <div id="formMsg" style="margin-top: 1rem; font-weight: 600; text-align: center;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 Aura Academy Inc. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Hamburger Mobile Navigation Toggle
+            const hamburger = document.getElementById("hamburger");
+            const navLinks = document.getElementById("navLinks");
+
+            hamburger.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+
+            // Auto-close menu when link selected
+            document.querySelectorAll(".nav-links a").forEach(link => {
+                link.addEventListener("click", () => navLinks.classList.remove("active"));
+            });
+
+            // Form Submit Logic
+            const form = document.getElementById("tourForm");
+            const msg = document.getElementById("formMsg");
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const parentName = document.getElementById("parentName").value;
+                
+                msg.style.color = "#10B981";
+                msg.textContent = `Thank you ${parentName}! Your tour request has been confirmed. Our admissions office will contact you shortly.`;
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
