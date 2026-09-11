@@ -1,849 +1,177 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Academy | Modern & Advanced Preschool</title>
-    <!-- Professional Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* ==================== GLOBAL VARIABLES & RESET ==================== */
-        :root {
-            --primary: #4F46E5;        /* Deep Indigo */
-            --primary-hover: #4338CA;
-            --secondary: #10B981;      /* Sage / Mint Green */
-            --accent-warm: #FF7E67;    /* Warm Soft Coral */
-            --accent-yellow: #F59E0B;  /* Muted Gold */
-            --dark-heading: #0F172A;   /* Slate Dark */
-            --body-text: #475569;      /* Slate Light */
-            --bg-light: #F8FAFC;       /* Porcelain Neutral */
-            --card-bg: #FFFFFF;
-            --border-color: #E2E8F0;
-            
-            --font-heading: 'Plus Jakarta Sans', sans-serif;
-            --font-body: 'Nunito', sans-serif;
-            
-            --radius-lg: 20px;
-            --radius-md: 12px;
-            --shadow-soft: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
-            --shadow-hover: 0 20px 40px -10px rgba(79, 70, 229, 0.12);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            color: var(--body-text);
-            background-color: var(--bg-light);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: var(--font-heading);
-            color: var(--dark-heading);
-            letter-spacing: -0.02em;
-        }
-
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-
-        /* ==================== NAVIGATION ==================== */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 8%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--dark-heading);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            width: 38px;
-            height: 38px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-        }
-
-        .logo span { color: var(--primary); }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2.2rem;
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a { transition: color 0.2s ease; }
-        .nav-links a:hover { color: var(--primary); }
-
-        .btn-nav {
-            background: var(--primary);
-            color: white !important;
-            padding: 0.65rem 1.4rem;
-            border-radius: var(--radius-md);
-            transition: all 0.2s ease !important;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
-        }
-
-        .btn-nav:hover {
-            background: var(--primary-hover);
-            transform: translateY(-1px);
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark-heading);
-        }
-
-        /* ==================== HERO SECTION ==================== */
-
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 5rem 8% 4rem;
-            gap: 4rem;
-            background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.05), transparent 50%);
-        }
-
-  .hero-content {
-    flex: 0 0 38%;
-}
-
-.hero-image-wrapper {
-    flex: 0 0 58%;
-}
-
-.hero-img {
-    width: 100%;
-    height: 500px;
-    max-width: none;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: var(--shadow-hover);
-}
-        .pill-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(79, 70, 229, 0.08);
-            color: var(--primary);
-            padding: 0.4rem 1rem;
-            border-radius: 30px;
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-content h1 {
-            font-size: 3.25rem;
-            line-height: 1.15;
-            margin-bottom: 1.25rem;
-            font-weight: 800;
-        }
-
-        .hero-content p {
-            font-size: 1.15rem;
-            color: var(--body-text);
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 0.85rem 1.8rem;
-            border-radius: var(--radius-md);
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.25 ease;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--dark-heading);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: #F1F5F9;
-            transform: translateY(-2px);
-        }
-
-        .hero-image-wrapper {
-            flex: 1;
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-    
-
-        .floating-badge {
-            position: absolute;
-            background: white;
-            padding: 0.9rem 1.25rem;
-            border-radius: var(--radius-md);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 0.9rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .badge-1 { top: 12%; left: -20px; }
-        .badge-2 { bottom: 10%; right: -10px; }
-
-        .floating-badge i {
-            font-size: 1.2rem;
-            padding: 8px;
-            border-radius: 8px;
-        }
-
-        /* ==================== STATS BAR ==================== */
-        .stats-section {
-            background: white;
-            padding: 2.5rem 8%;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2.2rem;
-            color: var(--primary);
-            font-weight: 800;
-        }
-
-        .stat-item p {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--body-text);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* ==================== PROGRAMS SECTION ==================== */
-        .section-padding { padding: 6rem 8%; }
-
-        .section-header {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 3.5rem auto;
-        }
-
-        .section-header h2 {
-            font-size: 2.25rem;
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-header p {
-            font-size: 1.05rem;
-            color: var(--body-text);
-        }
-
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .program-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 2.5rem 2rem;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .program-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(79, 70, 229, 0.3);
-        }
-
-        .card-tag {
-            align-self: flex-start;
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--secondary);
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 0.8rem;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            margin-bottom: 1.25rem;
-        }
-
-        .program-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .program-card p {
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .feature-list {
-            margin-bottom: 1.8rem;
-        }
-
-        .feature-list li {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .feature-list i {
-            color: var(--secondary);
-        }
-
-        .card-link {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .card-link:hover { text-decoration: underline; }
-
-        /* ==================== FEATURES SECTION ==================== */
-        .bg-white { background: white; }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-box {
-            padding: 2rem;
-            border-radius: var(--radius-md);
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s ease;
-        }
-
-        .feature-box:hover {
-            transform: translateY(-4px);
-        }
-
-        .icon-wrapper {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 1.25rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            border: 1px solid var(--border-color);
-        }
-
-        .feature-box h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-box p {
-            font-size: 0.9rem;
-        }
-
-        /* ==================== CONTACT & FORM ==================== */
-        .contact-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-soft);
-            display: flex;
-            overflow: hidden;
-        }
-
-        .contact-info-panel {
-            flex: 1;
-            background: linear-gradient(135deg, var(--dark-heading), #1E293B);
-            color: white;
-            padding: 3.5rem 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .contact-info-panel h2 {
-            color: white;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info-panel p {
-            color: #94A3B8;
-            margin-bottom: 2.5rem;
-        }
-
-        .info-details li {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .info-details i {
-            color: var(--secondary);
-            font-size: 1.2rem;
-            margin-top: 3px;
-        }
-
-        .form-panel {
-            flex: 1.2;
-            padding: 3.5rem 3rem;
-        }
-
-        .form-panel h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 0.4rem;
-            color: var(--dark-heading);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            transition: border-color 0.2s;
-            outline: none;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-        }
-
-        /* ==================== FOOTER ==================== */
-        footer {
-            background: white;
-            border-top: 1px solid var(--border-color);
-            padding: 2.5rem 8%;
-            font-size: 0.9rem;
-        }
-
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            width: 36px;
-            height: 36px;
-            background: var(--bg-light);
-            border-radius: 50%;
-            align-items: center;
-            justify-content: center;
-            margin-left: 0.5rem;
-            color: var(--body-text);
-            transition: all 0.2s ease;
-        }
-
-        .social-links a:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* ==================== RESPONSIVE DESIGN ==================== */
-        @media (max-width: 992px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 3rem;
-            }
-            .hero-content { max-width: 100%; }
-            .hero-btns { justify-content: center; }
-            .floating-badge { display: none; }
-            .contact-card { flex-direction: column; }
-        }
-
-        @media (max-width: 768px) {
-            .hamburger { display: block; }
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow-soft);
-                border-bottom: 1px solid var(--border-color);
-            }
-            .nav-links.active { display: flex; }
-            .hero-content h1 { font-size: 2.4rem; }
-            .form-panel, .contact-info-panel { padding: 2rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shukla Little Stars Day Care | Safe, Caring & Happy</title>
+  <meta name="description" content="Shukla Little Stars Day Care — safe, caring and joyful daycare for little children in Khora Colony, Ghaziabad.">
+
+  <style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#243044;background:#fffdf9;line-height:1.6}.container{width:min(1120px,92%);margin:auto}.topbar{position:sticky;top:0;z-index:10;background:rgba(255,253,249,.95);backdrop-filter:blur(10px);border-bottom:1px solid #eee7dc}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px}.logo{width:44px;height:44px;border-radius:14px;background:#ffe2a9;display:grid;place-items:center;font-size:24px}.brand strong{display:block;font-size:18px;color:#243044}.brand span{display:block;font-size:11px;letter-spacing:2px;color:#e07a5f;font-weight:700}nav{display:flex;gap:24px}nav a{color:#38445a;text-decoration:none;font-weight:600;font-size:14px}.nav-btn,.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:999px;padding:12px 20px;font-weight:800;border:0;cursor:pointer}.nav-btn{background:#243044;color:#fff}.hero{padding:76px 0 60px;background:linear-gradient(135deg,#fff4df,#eef9f5)}.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:50px}.pill,.eyebrow{color:#df715a;font-weight:800;letter-spacing:1.4px;font-size:12px}.pill{display:inline-block;background:#fff;border-radius:999px;padding:8px 13px;box-shadow:0 8px 25px rgba(50,50,50,.06)}h1{font-size:clamp(42px,5vw,68px);line-height:1.02;margin:18px 0;color:#1f2b3d}.hero-copy>p{font-size:19px;color:#5b6677;max-width:580px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}.btn.primary{background:#e9785d;color:#fff;box-shadow:0 10px 25px rgba(233,120,93,.25)}.btn.secondary{background:#fff;color:#26364b;border:1px solid #e8dfd1}.trust-row{display:flex;gap:18px;flex-wrap:wrap;color:#4b5969;font-size:13px;font-weight:700}.hero-image{position:relative}.hero-image img,.safety-photo img{width:100%;height:100%;object-fit:cover;border-radius:28px;display:block;box-shadow:0 25px 60px rgba(40,50,60,.16)}.hero-image img{aspect-ratio:1/1}.floating-card{position:absolute;right:-18px;bottom:22px;background:#fff;padding:14px 18px;border-radius:18px;box-shadow:0 12px 35px rgba(0,0,0,.12)}.floating-card b,.floating-card small{display:block}.floating-card small{color:#718096}.quick{background:#243044;color:#fff}.quick-grid{display:grid;grid-template-columns:repeat(4,1fr)}.quick-grid>div{padding:23px 18px;border-right:1px solid rgba(255,255,255,.12)}.quick-grid b,.quick-grid span{display:block}.quick-grid span{color:#cbd4df;font-size:13px}.section{padding:90px 0}.section-head{max-width:700px;margin:0 auto 42px;text-align:center}.section-head h2,.safety h2,.cta h2,.contact h2{font-size:clamp(32px,4vw,48px);line-height:1.1;margin:10px 0 14px;color:#202d40}.section-head p,.lead{color:#687386}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:#fff;border:1px solid #eee5d8;border-radius:24px;padding:30px;box-shadow:0 10px 30px rgba(50,50,50,.04)}.icon{font-size:35px}.card h3{font-size:22px;margin:12px 0 8px}.card p{color:#687386}.safety{background:#f4faf7}.safety-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}.safety-photo img{aspect-ratio:4/3}.safety-list{display:grid;gap:14px;margin:25px 0}.safety-list>div{display:flex;gap:15px;background:#fff;border-radius:18px;padding:14px 16px;border:1px solid #e6efe9}.safety-list span{font-size:25px}.safety-list b{display:block}.safety-list p{margin:2px 0;color:#687386;font-size:14px}.promise{background:#fff7ea}.promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.promise-grid>div{padding:28px;background:#fff;border-radius:22px}.promise-grid strong{color:#e9785d;font-size:14px}.gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px}.gallery-grid img{width:100%;height:340px;object-fit:cover;border-radius:22px}.gallery-grid img:nth-child(2),.gallery-grid img:nth-child(3){height:340px}.note{font-size:12px;color:#7a8491;margin-top:15px;text-align:center}.cta{padding:70px 0;background:#e9785d;color:#fff}.cta h2{color:#fff}.cta p{margin:0;color:#ffe9e1}.cta-box{display:flex;align-items:center;justify-content:space-between;gap:30px}.cta-actions{display:flex;gap:12px;flex-wrap:wrap}.btn.white{background:#fff;color:#d9624a}.btn.whatsapp{background:#243044;color:#fff}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}.contact a{color:#e06d55;font-weight:800}.contact-box{background:#fff;border:1px solid #eee5d8;padding:28px;border-radius:24px;box-shadow:0 10px 30px rgba(0,0,0,.05)}input,textarea{width:100%;padding:13px 15px;margin:7px 0;border:1px solid #ddd5c9;border-radius:12px;font:inherit}textarea{height:110px;resize:vertical}.contact-box button{width:100%;margin-top:8px}footer{background:#1e293b;color:#fff;padding:28px 0}.footer{display:flex;justify-content:space-between;gap:20px}.footer p{margin:3px 0;color:#cbd5e1}@media(max-width:850px){nav{display:none}.hero-grid,.safety-grid,.contact-grid{grid-template-columns:1fr}.cards,.promise-grid{grid-template-columns:1fr}.quick-grid{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr}.gallery-grid img,.gallery-grid img:nth-child(2),.gallery-grid img:nth-child(3){height:260px}.cta-box,.footer{flex-direction:column;align-items:flex-start}.floating-card{right:10px}.section{padding:65px 0}}@media(max-width:520px){.nav-btn{display:none}.hero{padding-top:45px}h1{font-size:43px}.quick-grid{grid-template-columns:1fr}.quick-grid>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}}
+
+  </style>
 </head>
 <body>
+<header class="topbar">
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">⭐</div>
+      <div><strong>Shukla Little Stars</strong><span>DAY CARE</span></div>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#care">Our Care</a>
+      <a href="#safety">Safety</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-btn" href="tel:+919717841314">Call Now</a>
+  </div>
+</header>
 
-    <!-- Header / Navigation -->
-    <header class="navbar">
-        <div class="logo">
-            <div class="logo-icon"><i class="fa-solid fa-shapes"></i></div>
-            Shukla <span>Play School</span>
-        </div>
-        <nav>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#features">Why Aura</a></li>
-                <li><a href="#contact" class="btn-nav">Admissions Open</a></li>
-            </ul>
-        </nav>
-        <div class="hamburger" id="hamburger">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    </header>
+<main>
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="pill">🛡️ Safety • ❤️ Care • 🌈 Learning</div>
+      <h1>A happy, safe place for your little star.</h1>
+      <p>Warm childcare, playful learning and a security-first environment where parents can feel confident while they work.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="tel:+919717841314">📞 Enquire Now</a>
+        <a class="btn secondary" href="#safety">See Safety Features</a>
+      </div>
+      <div class="trust-row">
+        <span>✓ Caring environment</span>
+        <span>✓ Secure entry</span>
+        <span>✓ CCTV-ready safety plan</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://www.arcadian.ai/cdn/shop/articles/ChatGPT_Image_Jul_17_2025_10_22_57_AM.png?v=1752856912&width=1100" alt="Children playing in a daycare classroom with a security camera">
+      <div class="floating-card"><b>🛡️ Safety First</b><small>Security & supervision</small></div>
+    </div>
+  </div>
+</section>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="pill-badge">
-                <i class="fa-solid fa-sparkles"></i> Next-Gen Early Education
-            </div>
-            <h1>Empowering Young Minds for a Dynamic Future</h1>
-            <p>Combining STEAM-guided early learning, emotional intelligence, and state-of-the-art security in a world-class environment.</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn btn-primary">Schedule Campus Tour <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="#programs" class="btn btn-secondary">Explore Programs</a>
-            </div>
-        </div>
-        <div class="hero-image-wrapper">
-            <div class="floating-badge badge-1">
-                <i class="fa-solid fa-brain" style="background:#EEF2FF; color:var(--primary);"></i>
-                <div>
-                    <div>STEAM Learning</div>
-                    <div style="font-weight:400; font-size:0.75rem; color:var(--body-text)">Logic & Creativity</div>
-                </div>
-            </div>
-            <div class="floating-badge badge-2">
-                <i class="fa-solid fa-shield-check" style="background:#ECFDF5; color:var(--secondary);"></i>
-                <div>
-                    <div>Smart Campus</div>
-                    <div style="font-weight:400; font-size:0.75rem; color:var(--body-text)">Encrypted Live Streaming</div>
-                </div>
-            </div>
-          <img src="image1.png"    alt="Happy children at playschool"
-     class="hero-img"> 
-        </div>
-    </section>
+<section class="quick">
+  <div class="container quick-grid">
+    <div><b>👶 Age Group</b><span>2.5 – 6 years</span></div>
+    <div><b>🕗 Timings</b><span>Mon – Sat · 8 AM – 7 PM</span></div>
+    <div><b>📍 Location</b><span>Khora Colony, Ghaziabad</span></div>
+    <div><b>📞 Enquiry</b><span>9717841314</span></div>
+  </div>
+</section>
 
-    <!-- Stats Bar -->
-    <section class="stats-section">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h3>1:6</h3>
-                <p>Teacher-Student Ratio</p>
-            </div>
-            <div class="stat-item">
-                <h3>100%</h3>
-                <p>Certified Educators</p>
-            </div>
-            <div class="stat-item">
-                <h3>24/7</h3>
-                <p>Parent App Access</p>
-            </div>
-            <div class="stat-item">
-                <h3>4.9★</h3>
-                <p>Parent Satisfaction Score</p>
-            </div>
-        </div>
-    </section>
+<section id="care" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">OUR CARE</span>
+      <h2>More than daycare — a second home.</h2>
+      <p>We combine caring supervision, age-appropriate activities and a clean, child-friendly routine.</p>
+    </div>
+    <div class="cards">
+      <article class="card"><div class="icon">🎨</div><h3>Creative Learning</h3><p>Drawing, colouring, stories, music and hands-on activities that keep little minds curious.</p></article>
+      <article class="card"><div class="icon">🧸</div><h3>Play & Development</h3><p>Fun play time that supports communication, confidence, movement and social skills.</p></article>
+      <article class="card"><div class="icon">🍎</div><h3>Daily Routine</h3><p>A simple, structured day with play, learning, meals and rest according to the child's needs.</p></article>
+    </div>
+  </div>
+</section>
 
-    <!-- Programs Section -->
-    <section id="programs" class="section-padding">
-        <div class="section-header">
-            <h2>Shukla Ji day care</h2>
-            <p>Tailored curriculum structured specifically for each developmental phase of early childhood.</p>
-        </div>
-        <div class="programs-grid">
-            <!-- Program 1 -->
-            <div class="program-card">
-                <span class="card-tag">Ages 1.5 – 2.5 Yrs</span>
-                <h3>Toddler Nest</h3>
-                <p>Focuses on sensory exploration, motor skill alignment, emotional security, and speech foundations.</p>
-                <ul class="feature-list">
-                    <li><i class="fa-solid fa-circle-check"></i> Sensory & Tactile Workspaces</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Rhythmic Movement & Music</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Potty Training Assistance</li>
-                </ul>
-                <a href="#contact" class="card-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
-            </div>
+<section id="safety" class="section safety">
+  <div class="container safety-grid">
+    <div class="safety-photo">
+      <img src="https://www.thompsonsecuritynm.com/images/business-security/security-camera-in-daycare-center.jpg" alt="Caregiver and child in a daycare room with security camera">
+    </div>
+    <div>
+      <span class="eyebrow">SAFETY & SECURITY</span>
+      <h2>Your child's safety comes first.</h2>
+      <p class="lead">Parents should know exactly how a daycare protects children. Our website highlights the safety practices parents can ask about during a visit.</p>
+      <div class="safety-list">
+        <div><span>📹</span><div><b>CCTV / Monitoring</b><p>Security cameras can help support supervision and incident review.</p></div></div>
+        <div><span>🚪</span><div><b>Controlled Entry</b><p>Visitor and pickup procedures should be followed to keep the centre secure.</p></div></div>
+        <div><span>🧑‍🏫</span><div><b>Responsible Caregivers</b><p>Children remain under active adult supervision during daycare hours.</p></div></div>
+        <div><span>🩹</span><div><b>First-Aid Readiness</b><p>Basic emergency contacts and first-aid arrangements should be kept ready.</p></div></div>
+      </div>
+      <a class="btn primary" href="tel:+919717841314">Ask About Our Safety Plan</a>
+    </div>
+  </div>
+</section>
 
-            <!-- Program 2 -->
-            <div class="program-card">
-                <span class="card-tag" style="background: rgba(79, 70, 229, 0.1); color: var(--primary);">Ages 2.5 – 3.5 Yrs</span>
-                <h3>Junior Explorers</h3>
-                <p>Structured play designed to introduce problem-solving, foundational literacy, and interactive social games.</p>
-                <ul class="feature-list">
-                    <li><i class="fa-solid fa-circle-check"></i> Early STEAM Discovery Modules</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Phonics & Early Math Concepts</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Collaborative Group Projects</li>
-                </ul>
-                <a href="#contact" class="card-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
-            </div>
+<section class="section promise">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">OUR PROMISE</span>
+      <h2>What parents can expect</h2>
+    </div>
+    <div class="promise-grid">
+      <div><strong>01</strong><h3>Clean & Child-Friendly</h3><p>Organised spaces, age-appropriate furniture and a welcoming atmosphere.</p></div>
+      <div><strong>02</strong><h3>Transparent Communication</h3><p>Clear information about timings, routine, pickup and important updates.</p></div>
+      <div><strong>03</strong><h3>Warm & Respectful Care</h3><p>Every child deserves patience, kindness and positive encouragement.</p></div>
+    </div>
+  </div>
+</section>
 
-            <!-- Program 3 -->
-            <div class="program-card">
-                <span class="card-tag" style="background: rgba(255, 126, 103, 0.1); color: var(--accent-warm);">Ages 3.5 – 5.5 Yrs</span>
-                <h3>Kindergarten (K1-K2)</h3>
-                <p>Comprehensive academic readiness building executive function, logical thinking, and creative expression.</p>
-                <ul class="feature-list">
-                    <li><i class="fa-solid fa-circle-check"></i> Interactive Smart Classroom Tools</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Introductory Language Lab</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Elementary School Prep</li>
-                </ul>
-                <a href="#contact" class="card-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
-            </div>
-        </div>
-    </section>
+<section id="gallery" class="section gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">GALLERY</span>
+      <h2>A glimpse of a safe, playful environment</h2>
+    </div>
+    <div class="gallery-grid">
+      <img src="https://www.arcadian.ai/cdn/shop/articles/ChatGPT_Image_Jul_17_2025_10_22_57_AM.png?v=1752856912&width=1100" alt="Children playing">
+      <img src="https://www.thompsonsecuritynm.com/images/business-security/security-camera-in-daycare-center.jpg" alt="Caregiver with child">
+      <img src="https://impoqrik.am/images/2025/news/mankapartez.jpg" alt="Daycare classroom with CCTV">
+    </div>
+    <p class="note">For the final live website, replace these sample images with your own centre photos and only publish children's photos with appropriate parent/guardian permission.</p>
+  </div>
+</section>
 
-    <!-- Features Section -->
-    <section id="features" class="section-padding bg-white">
-        <div class="section-header">
-            <h2>The Aura Smart Advantage</h2>
-            <p>Infusing warmth and early childhood care with modern, security-first technologies.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-box">
-                <div class="icon-wrapper"><i class="fa-solid fa-mobile-screen"></i></div>
-                <h3>Parent Portal App</h3>
-                <p>Live daily updates on meal logs, nap schedules, photos, and personalized developmental milestones.</p>
-            </div>
-            <div class="feature-box">
-                <div class="icon-wrapper"><i class="fa-solid fa-video"></i></div>
-                <h3>Encrypted HD CCTV</h3>
-                <p>Secure stream access via mobile to view your child's progress throughout the day.</p>
-            </div>
-            <div class="feature-box">
-                <div class="icon-wrapper"><i class="fa-solid fa-bowl-food"></i></div>
-                <h3>Curated Nutrition</h3>
-                <p>Organic, chef-prepared meals designed by pediatric nutrition specialists daily.</p>
-            </div>
-            <div class="feature-box">
-                <div class="icon-wrapper"><i class="fa-solid fa-user-nurse"></i></div>
-                <h3>Full-Time Health Desk</h3>
-                <p>On-site certified pediatric nurse and instant emergency health response systems.</p>
-            </div>
-        </div>
-    </section>
+<section class="cta">
+  <div class="container cta-box">
+    <div><span class="eyebrow">ADMISSIONS & ENQUIRIES</span><h2>Come meet us and see the centre.</h2><p>Ask about availability, fees, daily routine and safety arrangements.</p></div>
+    <div class="cta-actions">
+      <a class="btn white" href="tel:+919717841314">📞 97178 41314</a>
+      <a class="btn whatsapp" href="https://wa.me/919717841314?text=Hello%20Shukla%20Little%20Stars%20Day%20Care,%20I%20want%20to%20know%20about%20admission.">💬 WhatsApp</a>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact & Admissions Section -->
-    <section id="contact" class="section-padding">
-        <div class="contact-card">
-            <div class="contact-info-panel">
-                <div>
-                    <h2>Begin Your Child's Journey</h2>
-                    <p>Admissions are now open for the upcoming academic cycle. Book a tour to tour our smart facilities.</p>
-                    
-                    <ul class="info-details">
-                        <li>
-                            <i class="fa-solid fa-location-dot"></i>
-                            <div>
-                                <strong>Campus Address</strong>
-                                <p style="margin:0; color:#CBD5E1;">123 Academy Drive, Modern City</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-envelope"></i>
-                            <div>
-                                <strong>Email Direct</strong>
-                                <p style="margin:0; color:#CBD5E1;">admissions@auraacademy.edu</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-phone"></i>
-                            <div>
-                                <strong>Phone Line</strong>
-                                <p style="margin:0; color:#CBD5E1;">+1 (800) 456-AURA</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div style="font-size: 0.85rem; color: #94A3B8;">
-                    * Limited seats available per cohort to maintain optimal teacher ratios.
-                </div>
-            </div>
-<img src="image1.png" alt="Happy children at playschool"
-     style="width:100%; height:auto;">
-            <div class="form-panel">
-                <h3>Schedule a Campus Visit</h3>
-                <form id="tourForm">
-                    <div class="form-group">
-                        <label for="parentName">Parent's Full Name</label>
-                        <input type="text" id="parentName" class="form-control" required placeholder="e.g. Sarah Jenkins">
-                    </div>
-                    <div class="form-group">
-                        <label for="childAge">Child's Age (Years)</label>
-                        <input type="text" id="childAge" class="form-control" required placeholder="e.g. 2.5 Years">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" class="form-control" required placeholder="sarah@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="programSelect">Program Interest</label>
-                        <select id="programSelect" class="form-control" required>
-                            <option value="">Select a Program</option>
-                            <option value="toddler">Toddler Nest (1.5 - 2.5 Yrs)</option>
-                            <option value="junior">Junior Explorers (2.5 - 3.5 Yrs)</option>
-                            <option value="kindergarten">Kindergarten (3.5 - 5.5 Yrs)</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top:1rem;">
-                        Submit Registration Request
-                    </button>
-                    <div id="formMsg" style="margin-top: 1rem; font-weight: 600; text-align: center;"></div>
-                </form>
-            </div>
-        </div>
-    </section>
+<section id="contact" class="section contact">
+  <div class="container contact-grid">
+    <div>
+      <span class="eyebrow">CONTACT</span>
+      <h2>Shukla Little Stars Day Care</h2>
+      <p><b>📍 Address:</b> Khora Colony, Gali No. 4, Ghaziabad, Uttar Pradesh</p>
+      <p><b>🕗 Hours:</b> Monday–Saturday, 8:00 AM–7:00 PM<br>Sunday: Closed</p>
+      <p><b>📞 Phone:</b> <a href="tel:+919717841314">97178 41314</a></p>
+    </div>
+    <div class="contact-box">
+      <h3>Quick Enquiry</h3>
+      <input id="name" placeholder="Parent's name">
+      <input id="child" placeholder="Child's age">
+      <textarea id="message" placeholder="Your question"></textarea>
+      <button class="btn primary" onclick="sendWhatsApp()">Send on WhatsApp</button>
+    </div>
+  </div>
+</section>
+</main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <p>&copy; 2026 Aura Academy Inc. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            </div>
-        </div>
-    </footer>
+<footer>
+  <div class="container footer">
+    <div><b>⭐ Shukla Little Stars Day Care</b><p>बच्चों की देखभाल, माता-पिता का विश्वास</p></div>
+    <div>© 2026 Shukla Little Stars. All rights reserved.</div>
+  </div>
+</footer>
 
-    <!-- Interactive Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Hamburger Mobile Navigation Toggle
-            const hamburger = document.getElementById("hamburger");
-            const navLinks = document.getElementById("navLinks");
-
-            hamburger.addEventListener("click", () => {
-                navLinks.classList.toggle("active");
-            });
-
-            // Auto-close menu when link selected
-            document.querySelectorAll(".nav-links a").forEach(link => {
-                link.addEventListener("click", () => navLinks.classList.remove("active"));
-            });
-
-            // Form Submit Logic
-            const form = document.getElementById("tourForm");
-            const msg = document.getElementById("formMsg");
-
-            form.addEventListener("submit", (e) => {
-                e.preventDefault();
-                const parentName = document.getElementById("parentName").value;
-                
-                msg.style.color = "#10B981";
-                msg.textContent = `Thank you ${parentName}! Your tour request has been confirmed. Our admissions office will contact you shortly.`;
-                form.reset();
-            });
-        });
-    </script>
+<script>
+function sendWhatsApp(){
+  const name = document.getElementById('name').value || 'Parent';
+  const child = document.getElementById('child').value || 'Not specified';
+  const message = document.getElementById('message').value || 'I want to know about admission.';
+  const text = `Hello Shukla Little Stars Day Care,%0AParent: ${encodeURIComponent(name)}%0AChild age: ${encodeURIComponent(child)}%0AQuestion: ${encodeURIComponent(message)}`;
+  window.open('https://wa.me/919717841314?text=' + text, '_blank');
+}
+</script>
 </body>
 </html>
